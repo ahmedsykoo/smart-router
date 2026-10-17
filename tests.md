@@ -26,3 +26,7 @@ Add a row whenever you change keywords or hit a misroute.
 | راجع الكود ده من ناحية الأمان | reviewer | Opus |
 | صمم النظام لمنصة حجوزات | architect | Opus |
 | ابحث عن ريبو OCR عربي مجاني | researcher | Sonnet |
+| build a quick landing page | ui-designer | Sonnet |
+| اعملي لاندنج بيدج بسرعة كده | ui-designer | Sonnet |
+| what is wrong with my api endpoint, fix it | coder | Sonnet |
+| لخصلي المقال ده في بوست لينكدان | content-writer | Haiku |

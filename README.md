@@ -71,11 +71,12 @@ Order matters: first match wins.
 1. Add [`router-rules.md`](router-rules.md) to a Project's files.
 2. Put one line in the Project instructions:
    `Follow router-rules.md (in the project files) for EVERY message, including greetings.`
-3. For `voice`, also upload the skill in [`skills/smart-router/`](skills/smart-router/SKILL.md) (Settings → Capabilities → Skills).
+3. Only if you want `voice`: also upload the skill in [`skills/smart-router/`](skills/smart-router/SKILL.md) (Settings → Capabilities → Skills). With `router-rules.md` already in the project, the skill loads only for voice tasks, so the rules aren't loaded twice.
 
 **(b) Claude Code**
 1. Copy [`router-rules.md`](router-rules.md) into your repo's `CLAUDE.md` (or reference it from `.claude/`).
-2. Copy the skill: `cp -r skills/smart-router ~/.claude/skills/`
+2. Only if you want `voice`: `cp -r skills/smart-router ~/.claude/skills/` (it loads only for voice tasks when the rules are already in `CLAUDE.md`).
+3. Run the main session on **Sonnet** (`/model sonnet`): the router does Sonnet work inline and only spawns subagents for Opus/Haiku. On Opus, every task costs Opus to route.
 
 Then edit the **EDIT ME — your profile** block in Part 3 and the `<YOUR_ARTIFACT_URL>` in step 6 (or delete the logging block).
 عدّل بلوك البروفايل وحط رابط الـArtifact بتاعك أو امسح خطوة اللوج.
@@ -94,6 +95,7 @@ Then edit the **EDIT ME — your profile** block in Part 3 and the `<YOUR_ARTIFA
 - Keyword matching is brittle: a missing synonym routes to the wrong specialist or `general`. Use `!opus` / `!sonnet` / `!haiku` to force.
 - `done_check` only exists for deliverables with a command; writing and research rely on the subagent's STATUS.
 - Logging needs an Artifact URL you create yourself; without it, delete the log step.
+- Voice on your own machine uses a remote-device tool (`mcp__remote-devices__device_bash`) and Windows `py -3.11`. Without that setup, `voice` goes straight to the Colab notebook (free T4 GPU).
 - Voice cloning: only your own voice or one whose owner gave permission. No voice sample is shipped (`*.wav` is git-ignored).
   استنساخ الصوت بإذن صاحبه بس.
 

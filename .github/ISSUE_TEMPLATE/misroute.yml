@@ -1,0 +1,31 @@
+name: Misroute report
+description: A message went to the wrong specialist or model / رسالة راحت لمتخصص أو موديل غلط
+title: "Misroute: "
+labels: [misroute]
+body:
+  - type: input
+    id: message
+    attributes:
+      label: Message / الرسالة
+      description: The exact message you sent (remove anything private).
+    validations:
+      required: true
+  - type: input
+    id: got
+    attributes:
+      label: Footer you got / الفوتر اللي ظهر
+      placeholder: "← video-editor · Haiku"
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: Where it should go / المفروض يروح فين
+      placeholder: "← video-editor · Sonnet"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / ملاحظات
+      description: Which keyword you think caused it, or a better one.

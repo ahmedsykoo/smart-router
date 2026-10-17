@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-label="Smart Router: routes every message to the right specialist and the cheapest Claude model">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16120f"/>
+      <stop offset="1" stop-color="#2a1d16"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8875b"/>
+      <stop offset="1" stop-color="#d97757"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="400" rx="24" fill="url(#bg)"/>
+  <g fill="none" stroke="#3a2b22" stroke-width="1">
+    <path d="M0 100H1280M0 200H1280M0 300H1280M320 0V400M640 0V400M960 0V400"/>
+  </g>
+
+  <text x="80" y="140" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="72" font-weight="700" fill="#f5efe9">Smart Router</text>
+  <text x="80" y="190" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#c9bcb1">The right specialist. The cheapest model that can do it.</text>
+  <text x="80" y="236" font-family="Cairo, Noto Sans Arabic, Segoe UI, Tahoma, sans-serif" font-size="26" fill="#c9bcb1">المتخصص الصح، بأرخص موديل يقدر يعملها</text>
+
+  <g font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="600">
+    <rect x="80" y="290" width="130" height="48" rx="24" fill="#2f2620" stroke="#5b4a3e"/>
+    <text x="145" y="321" text-anchor="middle" fill="#f5efe9">Haiku</text>
+    <text x="232" y="322" text-anchor="middle" fill="#8a7a6d">→</text>
+    <rect x="254" y="290" width="140" height="48" rx="24" fill="#2f2620" stroke="#5b4a3e"/>
+    <text x="324" y="321" text-anchor="middle" fill="#f5efe9">Sonnet</text>
+    <text x="416" y="322" text-anchor="middle" fill="#8a7a6d">→</text>
+    <rect x="438" y="290" width="120" height="48" rx="24" fill="url(#accent)"/>
+    <text x="498" y="321" text-anchor="middle" fill="#16120f">Opus</text>
+  </g>
+
+  <g transform="translate(820 110)">
+    <rect width="380" height="200" rx="16" fill="#1d1712" stroke="#4a3a2f"/>
+    <circle cx="28" cy="28" r="7" fill="#e8875b"/>
+    <circle cx="50" cy="28" r="7" fill="#5b4a3e"/>
+    <circle cx="72" cy="28" r="7" fill="#5b4a3e"/>
+    <text x="352" y="88" font-family="Cairo, Noto Sans Arabic, Segoe UI, Tahoma, sans-serif" font-size="22" fill="#f5efe9" text-anchor="end">الكود مش شغال في صفحة اللوجين</text>
+    <line x1="28" y1="116" x2="352" y2="116" stroke="#3a2b22"/>
+    <text x="28" y="160" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#e8875b">← coder · Opus</text>
+  </g>
+</svg>

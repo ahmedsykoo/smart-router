@@ -111,7 +111,7 @@ The Sonnet row never overrides a specialist default; it's the fallback.
 | Tier | Keywords |
 |---|---|
 | Opus | معمارية، صمم النظام، صمّم النظام، خطة كاملة، خطة شاملة، هيكل المشروع، معقد، معقدة، صعب، صعبة، باج، bug، فين الغلط، مش شغال، مش شغالة، مش راضي يشتغل، بيضرب ايرور، بيضرب error، اتكسر، راجع، مراجعة، أمان، امان، ثغرة، refactor، حلل، حلّل، تحليل، قارن، استراتيجية، فكّر كويس، فكر كويس، ركّز، architecture, system design, plan, debug, review, security, audit, analyze, strategy, deep dive |
-| Haiku | سلام، ازيك، إزيك، عامل ايه، عامل إيه، صباح الخير، مساء الخير، شكرا، شكرًا، تسلم، متشكر، يعني ايه، يعني إيه، ايه هو، إيه هو، ايه الفرق، إيه الفرق، فهّمني بسرعة، بسرعة كده، ترجم، ترجملي، لخص، لخّص، لخصلي، صحح الإملاء، صحّح، باختصار، في سطر، في جملة، hi, hello, hey, thanks, what is, translate, summarize, tl;dr, quick |
+| Haiku | السلام عليكم، سلام عليكم، ازيك، إزيك، عامل ايه، عامل إيه، صباح الخير، مساء الخير، شكرا، شكرًا، تسلم، متشكر، يعني ايه، يعني إيه، ايه هو، إيه هو، ايه الفرق، إيه الفرق، فهّمني بسرعة، بسرعة كده، ترجملي، ترجم الجملة، ترجم الكلام، ترجم النص، لخص، لخّص، لخصلي، صحح الإملاء، صحّح، باختصار، في سطر، في جملة، hi, hello, hey, thanks, what is, translate, summarize, tl;dr, quick |
 | Sonnet | اعمل، اعملّي، اعملي، اكتب، اكتبلي، ظبّط، ظبط، عدّل، عدل، ضيف، ضيّف، غيّر، كود، صفحة، صمم، صمّم، مونتاج، فيديو، صوت، سكريبت، محتوى، build, code, feature, create, make, fix, update, UI |
 
 ## Specialists
@@ -124,18 +124,18 @@ Top-to-bottom, first match wins. `Default` is used only when no tier keyword mat
 | 2 | motion-designer | Sonnet | موشن، موشن جرافيك، انيميشن، أنيميشن، تحريك، motion, animation, animate, hyperframes |
 | 3 | reels-maker | Sonnet | ريل، ريلز، رييل، تيك توك، تيكتوك، شورتس، reel, reels, tiktok, shorts |
 | 4 | script-writer | Sonnet | سكريبت فيديو، سكريبت ريل، سكريبت يوتيوب، اسكريبت، سيناريو، هوك، hook, video script, storyboard |
-| 5 | video-editor | Sonnet | مونتاج، قص الفيديو، قصّ، دمج، ترجمة فيديو، ترجمة على الفيديو، صب تايتل، فيديو، ffmpeg, edit video, subtitles, trim, merge |
+| 5 | video-editor | Sonnet | مونتاج، قص الفيديو، قصّ، دمج الفيديو، دمج المقاطع، دمج فيديوهات، ترجمة فيديو، ترجمة على الفيديو، صب تايتل، فيديو، ffmpeg, edit video, subtitles, trim, merge clips |
 | 6 | social-designer | Sonnet | كاروسيل، كاروسل، تصميم بوست، بوست مصمم، بانر، بوستر، ثمبنيل، carousel, banner, poster, thumbnail, social post design |
-| 7 | content-writer | Sonnet | بوست، كابشن، مقال، محتوى، تغريدة، ثريد، لينكدان، caption, post, article, blog, thread, linkedin, copy |
+| 7 | content-writer | Sonnet | بوست، كابشن، مقال، محتوى، تغريدة، ثريد، لينكدان، caption, post, article, blog, thread, linkedin, copywriting |
 | 8 | ui-designer | Sonnet | واجهة، شاشة، لاندنج، لاندينج، صفحة هبوط، موكاب، تصميم صفحة، ux, ui, landing, mockup, wireframe, figma |
 | 9 | skill-builder | Opus | سكيل، سكل، skill، subagent، ساب ايجنت، متخصص جديد، ضيف متخصص، plugin |
 | 10 | automation | Sonnet | n8n، اوتوميشن، أتمتة، اتمتة، ايجنت، إيجنت، وكيل، webhook، workflow، automation، agent، crewai، mcp |
 | 11 | reviewer | Opus | راجع الكود، مراجعة كود، ثغرة، أمان، امان، تيستات، اختبارات، code review, security, audit, tests |
 | 12 | project | Opus | مشروع جديد، ابني مشروع، ابني تطبيق، ابني موقع، تطبيق كامل، موقع كامل، كمّل المشروع، كمل المشروع، new project, build app, full app, continue the project |
 | 13 | architect | Opus | معمارية، صمم النظام، صمّم النظام، هيكل المشروع، خطة كاملة، داتابيز، قاعدة بيانات، architecture, system design, schema, tech stack |
-| 14 | researcher | Sonnet | ابحث، دوّر، دور على، شوفلي، مصادر، ريبو، github، قارن بين، research, find, compare, sources, repo |
-| 15 | coder | Sonnet | كود، برمجة، سكريبت بايثون، فانكشن، دالة، باج، ايرور، error، api، endpoint، next.js، nextjs، supabase، fastapi، python، react، tailwind، function، code، deploy |
-| 16 | chat | Haiku | سلام، ازيك، إزيك، عامل ايه، صباح الخير، مساء الخير، شكرا، تسلم، hi, hello, hey, thanks |
+| 14 | researcher | Sonnet | ابحث، دوّر، دور على، شوفلي، مصادر، ريبو، github، قارن بين، research, find me, compare, sources, repo |
+| 15 | coder | Sonnet | كود، برمجة، سكريبت بايثون، فانكشن، دالة، باج، bug، ايرور، error، api، endpoint، next.js، nextjs، supabase، fastapi، python، react، tailwind، function، code، deploy |
+| 16 | chat | Haiku | السلام عليكم، سلام عليكم، ازيك، إزيك، عامل ايه، صباح الخير، مساء الخير، شكرا، تسلم، hi, hello, hey, thanks |
 
 ---
 

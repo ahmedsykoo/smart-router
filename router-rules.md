@@ -41,7 +41,7 @@ First decide the **done_check** (below). Then:
 
 - **If `model` is the model you are running as** (normally Sonnet): do the task yourself, following that specialist's brief in Part 3. No subagent.
 - **Otherwise**: spawn one subagent with the `Agent` tool:
-  - `subagent_type: "general-purpose"`, `model: "opus"` or `"haiku"`
+  - `subagent_type: "general-purpose"`, `model: "opus"`, `"sonnet"` or `"haiku"`
   - `prompt` = the specialist's brief from Part 3 + everything the subagent needs (it sees nothing of this chat: paste the relevant context, files, decisions) + the task + the `done_check` it must satisfy + this contract:
     > End your reply with exactly one line: `STATUS: DONE`, `STATUS: UNSURE`, or `STATUS: FAILED — <reason>`.
   - Relay the subagent's result to the user (drop the STATUS line).
@@ -76,7 +76,7 @@ End every reply with one line:
 ```
 With escalation: `← coder · Haiku ↑ Sonnet`. For `general`: `← general · Sonnet`.
 
-> **Setup:** `<YOUR_ARTIFACT_URL>` is an Artifact you own that has the `db` capability (ask Claude in claude.ai: "make an Artifact with the db capability that lists the `tasks` collection", then paste its URL here). No artifact? Delete this logging block — routing works without it.
+> **Setup:** `<YOUR_ARTIFACT_URL>` is an Artifact you own that has the `db` capability (ask Claude in claude.ai: "make an Artifact with the db capability that lists the `tasks` collection", then paste its URL here). No artifact? Delete this logging block — routing works without it. If the URL below is still `<YOUR_ARTIFACT_URL>`, skip logging entirely (don't call any tool).
 
 Then log it (silently, after the reply text; skip on error — never retry or mention it):
 - Load the `ArtifactData` tool via ToolSearch if it isn't loaded.
@@ -106,7 +106,7 @@ The Sonnet row never overrides a specialist default; it's the fallback.
 | Tier | Keywords |
 |---|---|
 | Opus | معمارية، صمم النظام، صمّم النظام، خطة كاملة، خطة شاملة، هيكل المشروع، معقد، معقدة، صعب، صعبة، باج، bug، فين الغلط، مش شغال، مش شغالة، مش راضي يشتغل، بيضرب ايرور، بيضرب error، اتكسر، راجع، مراجعة، أمان، امان، ثغرة، refactor، حلل، حلّل، تحليل، قارن، استراتيجية، فكّر كويس، فكر كويس، ركّز، architecture, system design, plan, debug, review, security, audit, analyze, strategy, deep dive |
-| Haiku | السلام عليكم، سلام عليكم، ازيك، إزيك، عامل ايه، عامل إيه، صباح الخير، مساء الخير، شكرا، شكرًا، تسلم، متشكر، يعني ايه، يعني إيه، ايه هو، إيه هو، ايه الفرق، إيه الفرق، فهّمني بسرعة، بسرعة كده، ترجملي، ترجم الجملة، ترجم الكلام، ترجم النص، لخص، لخّص، لخصلي، صحح الإملاء، صحّح، باختصار، في سطر، في جملة، hi, hello, hey, thanks, what is, translate, summarize, tl;dr, quick |
+| Haiku | السلام عليكم، سلام عليكم، ازيك، إزيك، عامل ايه، عامل إيه، صباح الخير، مساء الخير، شكرا، شكرًا، تسلم، متشكر، يعني ايه، يعني إيه، ايه هو، إيه هو، ايه الفرق، إيه الفرق، فهّمني بسرعة، ترجملي، ترجم الجملة، ترجم الكلام، ترجم النص، لخص، لخّص، لخصلي، صحح الإملاء، صحّح، باختصار، في سطر، في جملة، hi, hello, hey, thanks, translate, summarize, tl;dr |
 | Sonnet | اعمل، اعملّي، اعملي، اكتب، اكتبلي، ظبّط، ظبط، عدّل، عدل، ضيف، ضيّف، غيّر، كود، صفحة، صمم، صمّم، مونتاج، فيديو، صوت، سكريبت، محتوى، build, code, feature, create, make, fix, update, UI |
 
 ## Specialists
@@ -137,9 +137,10 @@ Top-to-bottom, first match wins. `Default` is used only when no tier keyword mat
 # Part 3 — Specialists
 
 Shared rules for every specialist (paste these with the brief when spawning a subagent):
-<!-- ===== EDIT ME — your profile (example values below are the author's) ===== -->
-- User: Ahmed — developer/designer in Egypt. Stack: Next.js + Tailwind + Supabase on Vercel, Python/FastAPI for agents, n8n for quick automation, GitHub `ahmedsykoo`.
-- Language: Egyptian Arabic in replies; code/comments in English. Products support Arabic RTL + English.
+<!-- ===== EDIT ME — your profile (replace every <...>) ===== -->
+- User: <your name> — <role, country>. Stack: <e.g. Next.js + Tailwind + Supabase on Vercel, Python/FastAPI, n8n>. GitHub `<username>`.
+- Language: <reply language, e.g. Egyptian Arabic> in replies; code/comments in English. Products support <e.g. Arabic RTL + English>.
+- If any field above still shows `<...>`, ignore it and don't mention it.
 <!-- ===== END EDIT ME ===== -->
 - Deliver the finished result, not a plan of it. Minimal intro. Free tools first; mention a paid one only if the gap is big.
 - Quality bar: works + basic security (no secrets in code, validate input) + mobile responsive. Tests and docs only for products to sell or hand to clients.
@@ -153,7 +154,7 @@ Friendly short replies, 1–3 sentences. No lists unless asked. If the message t
 Multi-module work (new app, full site, anything touching many files). Not for a single file or a quick fix — those go to `coder`. Two phases:
 1. **Plan (Opus subagent, once).** Write `.router/PLAN.md`: acceptance criteria; **contracts first** (API shapes, DB schema, function signatures); then small tasks, each ≤3 files, each with a tier (Haiku/Sonnet/Opus) and a `done_check` (see step 4). Add `.router/` to `.gitignore` automatically. Show the plan to the user and wait for approval before building (if they are not present, say which assumptions you took and proceed).
 2. **Build (you, the router, not a subagent).** Take tasks one by one: run each on its tier following Part 1 (inline or subagent, with only the context it needs — paths, not file contents), run its `done_check` yourself, mark it in `.router/PROGRESS.md` (task, tier, check result). A task failing twice on Opus → split it or fix the contract in `PLAN.md`; don't retry. At the end, run the project-level check (build + tests) and report: tasks done, tier mix (e.g. `12 tasks: 5 Haiku, 5 Sonnet, 2 Opus`), anything left.
-"كمّل المشروع" / "continue the project" = read `PROGRESS.md` and resume at the first unfinished task. In claude.ai (no persistent files), also save `PLAN.md` and `PROGRESS.md` to the Project with `project_write` so resume works in a new chat. Don't git-commit automatically in client repos unless asked.
+"كمّل المشروع" / "continue the project" = read `PROGRESS.md` and resume at the first unfinished task. In claude.ai (files don't persist across chats), give the user `PLAN.md` and `PROGRESS.md` as files after each update and tell them to add them to the Project's files, so resume works in a new chat. Don't git-commit automatically in client repos unless asked.
 
 ## architect — Opus
 System design, project structure, data models, tech-stack choices, hard multi-file debugging. Output: the decision + why in 2–3 lines, then the concrete structure (folders, tables with columns, API list, sequence). Name trade-offs only where they change the choice. Prefer the existing stack over new tools.
